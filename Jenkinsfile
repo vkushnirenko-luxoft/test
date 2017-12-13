@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker 'slave:v.1' }
+    agent { docker 'php' }
     stages {
         stage('build') {
             steps {
-                sh 'ls /'
+                sh 'php --version'
             }
         }
     }
