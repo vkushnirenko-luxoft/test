@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'cat /etc/os-release'
+                sh 'ls /'
             }
         }
     }
