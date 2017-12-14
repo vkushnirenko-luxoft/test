@@ -1,29 +1,21 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building'
-                touch 'deploy staging'
-                sh "chmod +x 'deploy staging'"
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying'
-            }
-        }
+        /* "Build" and "Test" stages omitted */
+
         stage('Deploy - Staging') {
             steps {
                 sh './deploy staging'
                 sh './run-smoke-tests'
             }
         }
+
+        stage('Sanity check') {
+            steps {
+                input "Does the staging environment look ok?"
+            }
+        }
+
         stage('Deploy - Production') {
             steps {
                 sh './deploy production'
