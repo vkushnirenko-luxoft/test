@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'Building'
                 touch 'deploy staging'
-                chmod +x 'deploy staging'
+                sh "chmod +x 'deploy staging'"
             }
         }
         stage('Test') {
