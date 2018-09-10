@@ -1,0 +1,8 @@
+build/
+*.user*
+src/appMain/sdl_preloaded_pt.json
+CMakeCache.txt
+CMakeFiles/
+*.pyc
+.idea
+src/appMain/build_config.txt
